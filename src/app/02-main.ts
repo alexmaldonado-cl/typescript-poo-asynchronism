@@ -15,7 +15,7 @@ productService.create({
 const products = productService.getAll();
 const productId = products[0].id;
 
-productService.updateProduct(productId, {
+productService.update(productId, {
   title: 'Product with another name'
 });
 

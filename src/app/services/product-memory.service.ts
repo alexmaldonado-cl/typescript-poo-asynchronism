@@ -2,8 +2,9 @@ import { faker } from "@faker-js/faker";
 
 import { Product } from "../models/product.model";
 import { CreateProductDTO, UpdateProductDTO } from "../dtos/product.dto";
+import { ProductService } from "../models/product-service.model";
 
-export class ProductMemoryService{
+export class ProductMemoryService implements ProductService{
 
   private products: Product[] = [];
 
@@ -35,7 +36,7 @@ export class ProductMemoryService{
     return product;
   }
 
-  public updateProduct(id: Product['id'], changes: UpdateProductDTO): Product  {
+  public update(id: Product['id'], changes: UpdateProductDTO): Product  {
     const index = this.products.findIndex(item => item.id === id);
 
     const prevData = this.products[index];
